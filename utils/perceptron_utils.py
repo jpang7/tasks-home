@@ -24,6 +24,7 @@ def training_loop(X, Y, rate, epochs):
       print(w, b)
   return w, b
 
+# TODO: this seems wrong
 def generate_data():
   positive = default_rng().random((10, 2))
   skew = np.array([[3,0],[0,2]])
@@ -41,4 +42,12 @@ def plot_X(X):
     ax.scatter(x[0], x[1], c='blue')
   for x in negative:
     ax.scatter(x[0], x[1], c='red')
-  plt.show()
+  # plt.show()
+
+# TODO: this seems wrong
+def plot_line(w,b):
+  w = w[0]
+  x_min, x_max = 0, 5
+  y_min = -(w[0]/w[1]) * x_min - b/w[1]
+  y_max = -(w[0]/w[1]) * x_max - b/w[1]
+  plt.plot([x_min, x_max], [y_min, y_max])
